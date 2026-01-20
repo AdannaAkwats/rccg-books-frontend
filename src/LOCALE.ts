@@ -1,0 +1,19 @@
+export const LOCALE = {
+  title: "RCCG Books Online",
+  searchLabel: "Search...",  
+  requestBook: "Request a book",  
+  landingHeader: {
+    p1: "In His Word,",
+    p2: "Every Day.",
+    subtitle: "Christian books all in one distraction-free reading space.",
+  },
+  todayDevotional: "Read Today’s Devotional",
+  browseAllBooks: "or browse all books »",
+  booksInLibrary: "Books in this library",
+  footerText: "© RCCG Books Online · Focused on the Word",
+  library: "Library",
+  selectBookPrompt: "Select a book to read",
+  noBooksFound: "No books found matching your search.",
+  assistanceContact: "Have a book request or need assistance? We'd love to hear from you. Please send your book requests or inquiries to:",
+  emailTip: "Include \"Book Request\" in the subject line for faster processing.",  
+};

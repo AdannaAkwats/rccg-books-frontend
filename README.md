@@ -71,3 +71,10 @@ export default defineConfig([
   },
 ])
 ```
+
+# Run
+
+To build and open local
+```
+npm run dev
+```
