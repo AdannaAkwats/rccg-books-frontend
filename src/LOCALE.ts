@@ -14,6 +14,7 @@ export const LOCALE = {
   library: "Library",
   selectBookPrompt: "Select a book to read",
   noBooksFound: "No books found matching your search.",
+  contactUs: "Contact Us",
   assistanceContact: "Have a book request or need assistance? We'd love to hear from you. Please send your book requests or inquiries to:",
   emailTip: "Include \"Book Request\" in the subject line for faster processing.",  
 };
