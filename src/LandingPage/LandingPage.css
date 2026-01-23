@@ -43,11 +43,13 @@ body {
   margin: 0;
   padding: 0;
   background: var(--bg);
+  overflow-x: hidden; /* prevent horizontal scroll due to blobs */
 }
 
 .lp {
   min-height: 100vh;
   color: var(--ink);
+  background: var(--bg);
 }
 
 .lp__header {
@@ -70,6 +72,74 @@ body {
 }
 
 .lp__brand:hover {
+  color: var(--gold);
+}
+
+.lp__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.lp__hamburger span {
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  transition: 0.3s;
+}
+
+.lp__hamburger:hover span {
+  background: var(--gold);
+}
+
+.lp__sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: var(--cream);
+  border-left: 1px solid var(--border-warm);
+  padding: 80px 20px 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lp__sidebar--open {
+  right: 0;
+}
+
+.lp__sidebarClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.lp__sidebarLink {
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 0;
+  transition: color 0.2s ease;
+}
+
+.lp__sidebarLink:hover {
   color: var(--gold);
 }
 
@@ -121,6 +191,7 @@ body {
   cursor: pointer;
   font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .lp__pillBtn--gold {
@@ -293,6 +364,11 @@ body {
   font-size: 14px;
 }
 
+.lp__card--clear {
+  background: #fffaf0;
+  border-color: var(--border-warm);
+}
+
 .lp__card--gold {
   background: linear-gradient(135deg, #fff7e6 0%, #fce1b5 100%);
   border-color: var(--border-warm);
@@ -376,7 +452,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .lp__header,
   .lp__main {
     padding-left: 24px;
@@ -406,6 +482,138 @@ body {
     padding-left: 12px;
     padding-right: 12px;
   }
+} */
+
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 1100px) {
+  /* keep a tight, clean canvas */
+  .lp__main {
+    padding: 0 16px 28px;
+  }
+
+  /* Header: center the brand, keep button aligned + not cramped */
+  .lp__header {
+    height: auto;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;  
+    padding: 12px 16px;
+  }
+
+  .lp__brand {
+    font-size: 22px;
+    line-height: 1.1;
+    max-width: 60%;
+  }
+
+  .lp__headerRight {
+    gap: 10px;
+  }
+
+
+  .lp__pillBtn {
+    height: 34px;
+    padding: 0 14px;
+    font-size: 13px;
+    white-space: nowrap; /* prevents ugly wrap */
+  }
+
+  /* Hero: reduce oversized type + center */
+  .lp__hero {
+    grid-template-columns: 1fr;
+    padding: 28px 0 0;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .lp__heroTitle {
+    font-size: 44px;
+    line-height: 1.0;
+    letter-spacing: -0.3px;
+  }
+
+  .lp__heroSubtitle {
+    font-size: 18px;
+    line-height: 1.45;
+    margin-top: 12px;
+    padding: 0 10px;
+  }
+
+  /* CTAs: stack vertically and center */
+  .lp__heroCtas {
+    margin-top: 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lp__ctaBtn {
+    width: min(320px, 100%);
+    height: 48px;
+  }
+
+  .lp__heroLink {
+    display: inline-block;
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  /* Decorative blobs: make them subtle and push behind so they don’t fight content */
+  .lp__heroDecor {
+    height: 180px;
+    margin-top: 10px;
+    opacity: 0.7;
+  }
+
+  .lp__blob--a {
+    width: 220px;
+    height: 220px;
+    right: 50%;
+    transform: translateX(65%);
+    top: 0;
+  }
+
+  .lp__blob--b {
+    width: 140px;
+    height: 140px;
+    right: 50%;
+    transform: translateX(120%);
+    top: 70px;
+  }
+
+  /* Library section spacing */
+  .lp__library {
+    padding: 18px 0 0;
+  }
+
+  .lp__sectionLabel {
+    text-align: center;
+    margin: 14px 0 14px;
+    font-size: 15px;
+  }
+
+  /* Cards: single column but with consistent spacing */
+  .lp__cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Optional: ensure tiles don’t stretch too tall on mobile */
+  .lp__card {
+    padding: 26px 20px;
+    min-height: unset;
+  }
+
+  /* Footer spacing */
+  .lp__footer {
+    padding: 36px 0 0;
+  }
+
+  .lp__footerText {
+    text-align: center;
+    padding: 0 10px;
+  }
 }
 
 .lp__pillLink {
@@ -414,35 +622,6 @@ body {
   justify-content: center;
   text-decoration: none;
 }
-
-
-/* .landing-page {
-  text-align: center;
-  padding: 50px;
-  background-color: #f0f0f0;
-}
-.header {
-  margin-bottom: 20px;
-}
-.cta-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.features {
-  display: flex;
-  justify-content: space-around;
-}
-.feature {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-} */
 
 .lp__contactInfo {
   text-align: center;

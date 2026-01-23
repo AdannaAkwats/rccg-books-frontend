@@ -17,4 +17,9 @@ export const LOCALE = {
   contactUs: "Contact Us",
   assistanceContact: "Have a book request or need assistance? We'd love to hear from you. Please send your book requests or inquiries to:",
   emailTip: "Include \"Book Request\" in the subject line for faster processing.",  
+  bookNotFound: "Book not found",
+  backToLibrary: "Back to Library",
+  byDate: "By Date",
+  byChapter: "By Chapter",
+  byPage: "By Page",
 };

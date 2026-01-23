@@ -11,7 +11,7 @@ export default defineConfig([
     files: ['src/**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-       tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.recommendedTypeChecked,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
@@ -27,7 +27,7 @@ export default defineConfig([
     files: ['*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-       tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.recommendedTypeChecked,
       reactRefresh.configs.vite,
     ],
     languageOptions: {
