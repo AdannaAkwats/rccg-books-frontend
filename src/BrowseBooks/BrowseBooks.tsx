@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ONBOARDED_BOOKS } from "../OnboardedBooksMetadata";
-import "../LandingPage/LandingPage.css";
+import "../Designs/Styles.css";
 import { Header } from "../LandingPage/Header";
 import { Footer } from "../LandingPage/Footer";
 import Tile from "../Designs/Tile/Tile";

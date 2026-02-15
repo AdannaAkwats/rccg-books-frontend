@@ -1,4 +1,4 @@
-import "../LandingPage/LandingPage.css";
+import "../Designs/Styles.css";
 import { LOCALE } from "../LOCALE";
 import { Header } from "../LandingPage/Header";
 import { Footer } from "../LandingPage/Footer";

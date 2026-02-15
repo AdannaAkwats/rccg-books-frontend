@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
-import "../LandingPage/LandingPage.css";
+import "../Designs/Styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { LOCALE } from "../LOCALE";
 
@@ -27,12 +27,7 @@ export function Header({ shouldRenderSearch = true, searchTerm, onSearchChange }
       <header className="lp__header">
         <Link to="/" className="lp__brand">{LOCALE.title}</Link>
 
-        <div className="lp__headerRight">
-          <button className="lp__hamburger" onClick={toggleSidebar} aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <div className="lp__headerRight"> 
           {shouldRenderSearch && (
           <div className="lp__search" role="search">
             <input
@@ -50,13 +45,17 @@ export function Header({ shouldRenderSearch = true, searchTerm, onSearchChange }
               </svg>
             </span>
           </div>)}
-
           <button
             className="lp__pillBtn lp__pillBtn--gold"
             type="button"
             onClick={handleRequestBook}
           >
             {LOCALE.requestBook}
+          </button>
+           <button className="lp__hamburger" onClick={toggleSidebar} aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </header>

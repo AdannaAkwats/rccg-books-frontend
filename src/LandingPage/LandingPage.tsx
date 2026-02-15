@@ -1,4 +1,4 @@
-import "./LandingPage.css";
+import "../Designs/Styles.css";
 import { LOCALE } from "../LOCALE";
 import { useNavigate } from "react-router-dom";
 import { ONBOARDED_BOOKS } from "../OnboardedBooksMetadata";

@@ -1,6 +1,6 @@
 import './App.css'
-import './LandingPage/LandingPage.css';
-import { Routes, Route } from 'react-router-dom'
+import './Designs/Styles.css';
+import { Routes, Route } from 'react-router-dom' 
 import LandingPage from './LandingPage/LandingPage'
 import BrowseBooks from './BrowseBooks/BrowseBooks'
 import ContactUs from './ContactUs/ContactUs'

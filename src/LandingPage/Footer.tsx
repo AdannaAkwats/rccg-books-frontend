@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import "../LandingPage/LandingPage.css";
+import "../Designs/Styles.css";
 import { LOCALE } from "../LOCALE";
 
 export function Footer(): ReactNode {

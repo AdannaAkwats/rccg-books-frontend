@@ -1,4 +1,4 @@
-import "../../LandingPage/LandingPage.css";
+import "../Styles.css";
 import type { TBookMetadata } from "../../OnboardedBooksMetadata";
 
 export default function Tile({ book, onClick }: { book: TBookMetadata; onClick?: (arg?: unknown) => void | undefined }) {
