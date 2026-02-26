@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Header } from "../LandingPage/Header";
 import { Footer } from "../LandingPage/Footer";
 import { useNavigate } from "react-router-dom";
-import { DatePickerSection } from "../Common/DatePickerSection";
+import { DatePicker } from "../Common/ReactAriaComponents/DatePicker";
 
 type ReadMode = "date" | "chapter";
 
@@ -43,17 +43,10 @@ export function BookDetail() {
             <p>Select a chapter to begin reading.</p>
           ) : (
             <>
-            <p>Select a date to begin reading.</p>
-            <DatePickerSection
-                years={[2025, 2026]}
-                onSelect={({ year, month, day }) => {
-                    // Example route: /book/open-heavens/date/2026-01-23
-                    const mm = String(month).padStart(2, "0");
-                    const dd = String(day).padStart(2, "0");
-                    // set state, fetch content, or navigate
-                    console.log(`${year}-${mm}-${dd}`);
-                }}
-                />
+             <p>Select a date to begin reading.</p>
+            <DatePicker
+                label = "Select reading date"
+            />
                 </>
           )}
         </section>
