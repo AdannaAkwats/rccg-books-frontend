@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ONBOARDED_BOOKS } from "../OnboardedBooksMetadata";
 import "../Designs/Styles.css";
-import { Header } from "../LandingPage/Header";
-import { Footer } from "../LandingPage/Footer";
+import { useSearch } from "../Common/useSearch";
 import Tile from "../Designs/Tile/Tile";
 import { LOCALE } from "../LOCALE";
 
 export default function BrowseBooks() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const { setVisible, searchTerm } = useSearch();
   const navigate = useNavigate();
 
   const handleBook = (id: string) => () => {
     void navigate(`/book/${id}`);
   };
+
+  useEffect(() => {
+    setVisible(true);
+    return () => setVisible(true);
+  }, [setVisible]);
 
   const filteredBooks = ONBOARDED_BOOKS.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -22,9 +26,8 @@ export default function BrowseBooks() {
   );
 
   return (
-     <div className="lp">
-      <Header searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-      <main className="lp__main">
+    <div className="lp">
+     <main className="lp__main">
          <h3 className="lp__heroTitle">
               {LOCALE.library}
           </h3>
@@ -40,7 +43,6 @@ export default function BrowseBooks() {
             ))}
           </div>
         </section>
-       <Footer />
       </main>
     </div>
   );

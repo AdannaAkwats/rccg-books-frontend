@@ -837,3 +837,254 @@ body {
     padding: 12px 0;
   }
 }
+/* Chapter view */
+.lp__chapterView {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.lp__chapterSearch {
+  padding: 12px 16px;
+  border: 1px solid var(--border-warm);
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--cream);
+  transition: border-color 0.2s ease;
+}
+
+.lp__chapterSearch:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: white;
+}
+
+.lp__chapterList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.lp__chapterItem {
+  padding: 12px 16px;
+  border: 1px solid var(--border-warm);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.lp__chapterItem:hover {
+  background: #f5eee0;
+  border-color: var(--gold);
+}
+
+.lp__chapterItem.is-selected {
+  background: var(--gold);
+  color: var(--gold-ink);
+  border-color: var(--gold);
+  font-weight: 600;
+}
+
+.lp__selectedChapter {
+  padding: 12px 16px;
+  background: #fef5e7;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.lp__selectedChapter p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Reading view */
+.lp__readingHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+
+.lp__backBtn {
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lp__backBtn:hover {
+  color: var(--gold);
+}
+
+.lp__readingTitle {
+  flex: 1;
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lp__article {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #fffaf0;
+  border: 1px solid var(--border-warm);
+  border-radius: 28px;
+}
+
+.lp__article--gold {
+  background: #fffaf0;
+  border-color: var(--border-warm);
+}
+
+.lp__article--green {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+}
+
+.lp__article--purple {
+  background: var(--purple-bg);
+  border-color: var(--purple-border);
+}
+
+.lp__contentTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 24px;
+  line-height: 1.2;
+  font-style: italic;
+  letter-spacing: -0.2px;
+}
+
+.lp__article--green .lp__contentTitle {
+  color: var(--green-ink);
+}
+
+.lp__article--purple .lp__contentTitle {
+  color: var(--purple-ink);
+}
+
+.lp__contentBody {
+  margin-bottom: 32px;
+}
+
+.lp__contentText {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--ink);
+  margin: 0;
+  word-spacing: 0.1em;
+  user-select: text;
+}
+
+.lp__article--green .lp__contentText {
+  color: var(--green-ink);
+}
+
+.lp__article--purple .lp__contentText {
+  color: var(--purple-ink);
+}
+
+/* Drop cap (first letter styling) */
+.lp__contentText::first-letter {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 4em;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--gold);
+  float: left;
+  line-height: 0.8;
+  margin-right: -8px;
+  margin-top: 2px;
+}
+
+.lp__article--green .lp__contentText::first-letter {
+  color: var(--green-btn);
+}
+
+.lp__article--purple .lp__contentText::first-letter {
+  color: var(--purple-btn);
+}
+
+/* Text selection styling */
+.lp__contentText::selection {
+  background-color: #f0e5d8;
+  color: var(--ink);
+}
+
+.lp__article--green .lp__contentText::selection {
+  background-color: #d6e4d3;
+  color: var(--green-ink);
+}
+
+.lp__article--purple .lp__contentText::selection {
+  background-color: #e0d1e8;
+  color: var(--purple-ink);
+}
+
+/* Navigation between chapters/dates */
+.lp__readingNavigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-warm);
+}
+
+.lp__navBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 1px solid var(--border-warm);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lp__navBtn:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--gold-ink);
+  border-color: var(--gold);
+}
+
+.lp__navBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lp__navBtn--prev {
+  justify-self: start;
+}
+
+.lp__navBtn--next {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}

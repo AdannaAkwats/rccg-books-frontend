@@ -1,13 +1,19 @@
 import "../Designs/Styles.css";
 import { LOCALE } from "../LOCALE";
-import { Header } from "../LandingPage/Header";
-import { Footer } from "../LandingPage/Footer";
+import { useEffect } from "react";
+import { useSearch } from "../Common/useSearch";
 import CONFIG from "../CONFIG";
 
 export default function ContactUs() {
+  const { setVisible } = useSearch();
+
+  useEffect(() => {
+    setVisible(false);
+    return () => setVisible(true);
+  }, [setVisible]);
+
   return (
     <div className="lp">
-      <Header shouldRenderSearch={false} />
       <main className="lp__main">
           <div className="lp__heroText">
             <h1 className="lp__heroTitle">
@@ -29,7 +35,6 @@ export default function ContactUs() {
             </p>
           </div>
       </main>
-      <Footer />
     </div>
   );
 }

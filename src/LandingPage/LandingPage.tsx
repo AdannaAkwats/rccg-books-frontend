@@ -4,19 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { ONBOARDED_BOOKS } from "../OnboardedBooksMetadata";
 import Tile from "../Designs/Tile/Tile";
 import { Link } from "react-router-dom";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { useEffect } from "react";
+import { useSearch } from "../Common/useSearch";
 
 export default function LandingPage() {
   const navigate = useNavigate();
+  const { setVisible, setSearchTerm } = useSearch();
   const handleBook = (id: string) => () => {
     void navigate(`/book/${id}`);
   };
 
+  useEffect(() => {
+    setVisible(false);
+    setSearchTerm('');
+    return () => setVisible(true);
+  }, [setVisible, setSearchTerm]);
+
   return (
     <div className="lp">
-      <Header shouldRenderSearch={false} />
-
       <main className="lp__main">
         <section className="lp__hero">
           <div className="lp__heroText">
@@ -55,7 +60,6 @@ export default function LandingPage() {
             ))}
           </div>
         </section>
-        <Footer />
       </main>
     </div>
   );
