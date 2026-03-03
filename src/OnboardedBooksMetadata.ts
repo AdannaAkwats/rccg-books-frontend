@@ -24,7 +24,7 @@ export const ONBOARDED_BOOKS: TBookMetadata[] = [
     chapters: ["foo", "bar", "baz"], // Mock: the values are from the API 
     content: {
       "foo": { title: "Foo Chapter", content: "Content for Foo Chapter" },
-      "bar": { title: "Bar Chapter", content: "Content for Bar Chapter" },
+      "bar": { title: "Bar Chapter", content: "This is pretty great!" },
       "baz": { title: "Baz Chapter", content: "Content for Baz Chapter" },
     },
   },
@@ -39,8 +39,9 @@ export const ONBOARDED_BOOKS: TBookMetadata[] = [
     chapters: ["foo", "bar", "baz"], // Mock: the values are from the API 
     content: {
       "foo": { title: "Foo Chapter", content: "Content for Foo Chapter" },
-      "bar": { title: "Bar Chapter", content: "Content for Bar Chapter" },
+      "bar": { title: "Bar Chapter", content: "This is pretty great!" },
       "baz": { title: "Baz Chapter", content: "Content for Baz Chapter" },
+      "2026-02-20": { title: "Date example Chapter", content: "Rendered from date" },
     },
 
   },

@@ -1,11 +1,8 @@
 TODO
 1. Add details screen across reading mode 
-2. Fix the chapter - needs to be pretty font
-3. Fix the content
-4. Fix the fonts in the previous and next. Also maybe change the colour 
-5. Fix the url
-5. Add the back to library
-6. Add font change or size change
+1. Align chevron icon with the previous and next text buttons
+5. Fix the url issue where sometimes when back button is clicked, there's an empty page
+6. The header section can become cramped if the book title is small
 7. Think about how to store content to render it on the screen
 
 # RCCG Books Platform - Frontend

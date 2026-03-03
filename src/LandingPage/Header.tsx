@@ -3,6 +3,7 @@ import { useState } from "react";
 import "../Designs/Styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { LOCALE } from "../LOCALE";
+import { Search } from "lucide-react";
 
 interface HeaderProps {
   shouldRenderSearch?: boolean;
@@ -38,11 +39,7 @@ export function Header({ shouldRenderSearch = true, searchTerm, onSearchChange }
               onChange={(e) => onSearchChange?.(e.target.value)}
             />
             <span className="lp__searchIcon" aria-hidden="true">
-              {/* magnifier */}
-              <svg width="18" height="18" viewBox="0 0 18 18">
-                <circle cx="7.5" cy="7.5" r="5.5" fill="none" />
-                <path d="M11.5 11.5 L16 16" fill="none" />
-              </svg>
+              <Search size={18} />
             </span>
           </div>)}
           <button

@@ -27,4 +27,9 @@ export const LOCALE = {
   next: "Next",
   previous: "Previous",
   searchChapters: "Search chapters...",
+  buttons: {
+    previous: "Previous",
+    next: "Next",
+    back: "Back"
+  }
 };

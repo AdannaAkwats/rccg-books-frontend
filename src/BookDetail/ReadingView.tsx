@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { type TBookMetadata } from "../OnboardedBooksMetadata";
 import PageNotFound from "../Common/PageNotFound";
+import { LOCALE } from "../LOCALE";
 
 interface ReadingViewProps {
     book: TBookMetadata;
@@ -25,7 +26,7 @@ export function ReadingView(props: ReadingViewProps): ReactNode {
         <>
             <div className="lp__readingHeader">
                 <button className="lp__backBtn" onClick={onBack}>
-                    ← Back
+                    <ChevronLeft size={20} /> {LOCALE.buttons.back}
                 </button>
                 <h1 className="lp__readingTitle">{book.title}</h1>
             </div>
@@ -43,14 +44,14 @@ export function ReadingView(props: ReadingViewProps): ReactNode {
                         onClick={onPrevious}
                         disabled={!hasPrevious}
                     >
-                        <ChevronLeft size={20} /> Previous
+                        <ChevronLeft size={20} /> {LOCALE.buttons.previous}
                     </button>
                     <button 
                         className="lp__modeBtn" 
                         onClick={onNext}
                         disabled={!hasNext}
                     >
-                        Next <ChevronRight size={20} />
+                        {LOCALE.buttons.next} <ChevronRight size={20} />
                     </button>
                 </div>
             </article>
