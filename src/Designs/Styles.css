@@ -845,6 +845,32 @@ body {
   width: 100%;
 }
 
+/* Page view */
+.lp__pageView {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 16px 0;
+}
+
+.lp__pageInput {
+  padding: 12px 16px;
+  border: 1px solid var(--border-warm);
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--cream);
+  width: 100px;
+  max-width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.lp__pageInput:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: white;
+}
+
 .lp__chapterSearch {
   padding: 12px 16px;
   border: 1px solid var(--border-warm);

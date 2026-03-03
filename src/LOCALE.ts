@@ -23,6 +23,7 @@ export const LOCALE = {
   byDate: "By Date",
   byChapter: "By Chapter",
   byPage: "By Page",
+  enterPage: "Enter page number",
   read: "Read",
   next: "Next",
   previous: "Previous",

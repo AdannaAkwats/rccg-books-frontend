@@ -24,6 +24,7 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
     const [mode, setMode] = useState<TReadMode | undefined | null>(book?.readingModes[0] || null);
     const [selectedChapter, setSelectedChapter] = useState<string | null>(null);
     const [selectedDate, setSelectedDate] = useState<string | null>(params.contentId || defaultDate.toString());
+    const [selectedPage, setSelectedPage] = useState<string | null>(params.contentId || null);
     const [chapterSearchQuery, setChapterSearchQuery] = useState<string>("");
 
     const handleNavigate = () => {
@@ -77,6 +78,8 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
                 return renderChapterView();
             case "date":
                 return renderDateView();
+            case "page":
+                return renderPageView();
             default:
                 return null;
         }
@@ -116,6 +119,21 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
         );
     }
 
+    function renderPageView(): ReactNode {
+        return (
+            <div className="lp__pageView">
+                <input
+                    type="number"
+                    min="1"
+                    className="lp__pageInput"
+                    placeholder={LOCALE.enterPage}
+                    value={selectedPage || ""}
+                    onChange={(e) => setSelectedPage(e.target.value)}
+                />
+            </div>
+        );
+    }
+
     function renderReadingModes(): ReactNode {
         const modeLabels: Record<TReadMode, string> = {
             date: LOCALE.byDate,
@@ -148,7 +166,11 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
         <button 
             className="lp__ctaBtn lp__ctaBtn--gold" 
             type="button"
-            disabled={(mode === "chapter" && !selectedChapter) || (mode === "date" && !selectedDate)}
+            disabled={
+                (mode === "chapter" && !selectedChapter) ||
+                (mode === "date" && !selectedDate) ||
+                (mode === "page" && !selectedPage)
+            }
             onClick={handleRead}
         >
             {LOCALE.read}
@@ -175,6 +197,8 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
             contentId = selectedChapter || "";
         } else if (mode === "date") {
             contentId = selectedDate || today(getLocalTimeZone()).toString();
+        } else if (mode === "page") {
+            contentId = selectedPage || "";
         } // add more modes as needed
         if (contentId) {
             setViewState("reading");
@@ -189,6 +213,7 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
 
     function getContentKey(): string {
         if (mode === "chapter") return selectedChapter || "";
+        if (mode === "page") return selectedPage || "";
         return selectedDate || today(getLocalTimeZone()).toString();
         // add more modes as needed
     }
@@ -227,6 +252,8 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
         if (prevKey) {
             if (mode === "chapter") {
                 setSelectedChapter(prevKey);
+            } else if (mode === "page") {
+                setSelectedPage(prevKey);
             } else {
                 setSelectedDate(prevKey);
             } // add more modes as needed
@@ -239,6 +266,8 @@ export function BookDetail(props: IBookDetailProps): ReactNode {
         if (nextKey) {
             if (mode === "chapter") {
                 setSelectedChapter(nextKey);
+            } else if (mode === "page") {
+                setSelectedPage(nextKey);
             } else {
                 setSelectedDate(nextKey);
             } // add more modes as needed

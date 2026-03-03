@@ -20,12 +20,15 @@ export const ONBOARDED_BOOKS: TBookMetadata[] = [
     buttonLabel: "Read Today’s Devotional",
     design: "gold",
     id: "open-heavens-2025-2026",
-    readingModes: ["date", "chapter"],
+    readingModes: ["date", "chapter", "page"],
     chapters: ["foo", "bar", "baz"], // Mock: the values are from the API 
     content: {
       "foo": { title: "Foo Chapter", content: "Content for Foo Chapter" },
       "bar": { title: "Bar Chapter", content: "This is pretty great!" },
       "baz": { title: "Baz Chapter", content: "Content for Baz Chapter" },
+      // numeric page keys (mocked)
+      "1": { title: "Page 1", content: "Page 1 content (also accessible by page)" },
+      "2": { title: "Page 2", content: "Page 2 content (also accessible by page)" },
     },
   },
   {
@@ -35,13 +38,14 @@ export const ONBOARDED_BOOKS: TBookMetadata[] = [
     buttonLabel: "Read",
     design: "green",
     id: "sunday-school-manual-2025-2026-eu",
-    readingModes: ["date", "chapter"],
+    readingModes: ["date", "chapter", "page"],
     chapters: ["foo", "bar", "baz"], // Mock: the values are from the API 
     content: {
       "foo": { title: "Foo Chapter", content: "Content for Foo Chapter" },
       "bar": { title: "Bar Chapter", content: "This is pretty great!" },
       "baz": { title: "Baz Chapter", content: "Content for Baz Chapter" },
       "2026-02-20": { title: "Date example Chapter", content: "Rendered from date" },
+      "1": { title: "Page 1", content: "Page-based content 1" },
     },
 
   },
