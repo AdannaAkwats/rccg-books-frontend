@@ -1,0 +1,57 @@
+name: Deploy Frontend & CDK Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'infra/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/deploy.yml'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Test AWS access
+        run: aws sts get-caller-identity
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install root dependencies
+        run: npm install
+      
+      - name: Build frontend
+        run: npm run build
+      
+      - name: Install infra dependencies
+        working-directory: ./infra
+        run: npm install
+      
+      - name: Deploy CDK infrastructure
+        working-directory: ./infra
+        run: npm run deploy -- --require-approval never
+        env:
+          CDK_DEFAULT_ACCOUNT: ${{ vars.AWS_ACCOUNT_ID }}
+          CDK_DEFAULT_REGION: ${{ vars.AWS_REGION }}

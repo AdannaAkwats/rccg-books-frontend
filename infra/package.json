@@ -1,0 +1,28 @@
+{
+  "name": "rccg-books-infra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "deploy": "cdk deploy",
+    "diff": "cdk diff",
+    "destroy": "cdk destroy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "aws-cdk-lib": "^2.243.0",
+    "constructs": "^10.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "aws-cdk": "^2.1111.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
