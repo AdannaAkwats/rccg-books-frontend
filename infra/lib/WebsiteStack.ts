@@ -49,6 +49,7 @@ export class WebsiteStack extends cdk.Stack {
       ],
       distribution,
       distributionPaths: ['/*'],
+      waitForDistributionInvalidation: false,
     });
 
     new cdk.CfnOutput(this, 'CloudFrontUrl', {
