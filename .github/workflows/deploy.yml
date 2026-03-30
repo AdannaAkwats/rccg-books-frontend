@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'src/**'
+      - 'backend/**'
       - 'infra/**'
       - 'package.json'
       - 'package-lock.json'
@@ -43,6 +44,14 @@ jobs:
         run: npm install
       
       - name: Build frontend
+        run: npm run build
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: Build backend
+        working-directory: ./backend
         run: npm run build
       
       - name: Install infra dependencies

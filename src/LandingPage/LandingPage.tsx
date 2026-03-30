@@ -6,7 +6,11 @@ import Tile from "../Designs/Tile/Tile";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSearch } from "../Common/useSearch";
+import { today, getLocalTimeZone } from "@internationalized/date";
 
+
+const todayDate = today(getLocalTimeZone()).toString();
+const TODAY_DEVOTIONAL_LINK = `/book/open-heavens-2025-2026/${todayDate}`;
 export default function LandingPage() {
   const navigate = useNavigate();
   const { setVisible, setSearchTerm } = useSearch();
@@ -36,7 +40,13 @@ export default function LandingPage() {
 
             <div className="lp__heroCtas">
               <br />
-              <button className="lp__ctaBtn lp__ctaBtn--gold" type="button">
+              <button
+                className="lp__ctaBtn lp__ctaBtn--gold"
+                type="button"
+                onClick={() => {
+                  void navigate(TODAY_DEVOTIONAL_LINK);
+                }}
+              >
                 {LOCALE.todayDevotional}
               </button>
               <Link className="lp__heroLink" to="/library">
