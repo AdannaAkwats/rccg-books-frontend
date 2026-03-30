@@ -32,7 +32,7 @@ export class OnboardingStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'onboard/index.handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../../backend/dist')),
-      memorySize: 10240,
+      memorySize: 3008,
       timeout: cdk.Duration.seconds(900),
       environment: {
         ONBOARDED_BUCKET: onboardedBucket.bucketName,
